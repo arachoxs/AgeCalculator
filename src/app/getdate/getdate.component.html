@@ -1,0 +1,55 @@
+<div class="mt-10 ml-10 mr-10 ">
+    <form class="flex flex-col" [formGroup]="dateForm" >
+        <div class="flex w-[70%] h-18 justify-between ">
+            <label class="flex flex-col" >
+                <div class="text-xs">
+                    DAY
+                </div>
+                <input type="text" formControlName="day" class="text-[24px] pl-3 border-[0.5px] border-gray-300 rounded w-24 mt-1"/>
+                @if(!invalidday){
+                    <div class="text-red-500 text-xs mt-1">Invalid day</div>
+                }
+            </label>
+            <label class="flex flex-col" >
+                <div class="text-xs">
+                    MONTH
+                </div>
+                <input type="text" formControlName="month" class="text-[24px] pl-3 border-[0.5px] border-gray-300 rounded w-24 mt-1"/>
+                @if(!invalidmonth){
+                    <div class="text-red-500 text-xs mt-1">Invalid month</div>
+                }
+            </label>
+            <label class="flex flex-col ">
+                <div class="text-xs">
+                    YEAR
+                </div>
+                <input type="text"  formControlName="year"class="text-[24px] pl-3 border-[0.5px] border-gray-300 rounded w-24 mt-1"/>
+                @if(!invalidyear){
+                    <div class="text-red-500 text-xs mt-1">Invalid year</div>
+                }
+            </label>
+        </div>
+        
+        @if(futuredate){
+            <div class="text-red-500 text-xs mt-1">Are u born in the future? stupid person</div>
+        }
+
+        <div class="relative w-full flex justify-end items-center mt-1">
+            <!-- Línea -->
+            <div class="absolute left-0 right-0 h-px bg-gray-300 z-0"></div>
+          
+            <!-- Botón encima de la línea -->
+            <button 
+              type="button" 
+              (click)="senddate()" 
+              class="w-15 h-15 rounded-full bg-purple-500 text-white flex items-center justify-center shadow-lg hover:bg-purple-600 z-10"
+            >
+                <img src="assets/icons/icon-arrow.svg" alt="Arrow" class="w-8 h-8" />
+
+            </button>
+          </div>
+          
+    </form>
+    <!--<p class="text-2xl">{{dateForm.value.day}}</p> it works!-->
+
+</div>
